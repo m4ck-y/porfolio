@@ -1,0 +1,154 @@
+.section {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--fui-border);
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.experienceItem {
+  background: var(--fui-bg-card);
+  border: 1px solid var(--fui-border);
+  padding: 25px;
+  position: relative;
+}
+
+.experienceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.experienceTitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.experienceCompany {
+  font-family: var(--fui-font-mono);
+  font-size: 11px;
+  color: #00ffff60;
+  letter-spacing: 2px;
+}
+
+.experienceDate {
+  font-family: var(--fui-font-mono);
+  font-size: 10px;
+  color: var(--fui-primary);
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border: 1px solid var(--fui-border);
+  background: var(--fui-primary-light);
+}
+
+.experienceDescription {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #00ffffaa;
+  margin-bottom: 15px;
+}
+
+.experienceTasks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.experienceTask {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: #00ffff90;
+  line-height: 1.6;
+}
+
+.taskIcon {
+  color: var(--fui-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.educationCard {
+  background: var(--fui-bg-card);
+  border: 1px solid var(--fui-border);
+  padding: 20px;
+}
+
+.educationTitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.educationSchool {
+  font-family: var(--fui-font-mono);
+  font-size: 11px;
+  color: #00ffff60;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.educationDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.educationDetail {
+  font-size: 11px;
+  color: #00ffff80;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 12px 24px;
+  font-family: var(--fui-font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  border: 1px solid var(--fui-border);
+  background: transparent;
+  color: var(--fui-primary);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  background: var(--fui-primary-light);
+}
+
+.tabActive {
+  background: var(--fui-primary);
+  color: var(--fui-bg-dark);
+}

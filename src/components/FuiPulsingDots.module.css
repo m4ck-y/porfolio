@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.statusIndicator.online {
+  border-color: #00ff0040;
+  color: #00ff00;
+}
+
+.statusIndicator.warning {
+  border-color: #ff660040;
+  color: #ff6600;
+}
+
+.statusIndicator.offline {
+  border-color: #ff004040;
+  color: #ff0040;
+}
+
+.pulsingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 8px 2px currentColor;
+  }
+}
+
+.label {
+  font-family: 'Share Tech Mono', monospace;
+}

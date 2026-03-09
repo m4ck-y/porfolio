@@ -1,0 +1,72 @@
+.tooltip {
+  position: relative;
+  cursor: help;
+  display: inline-block;
+}
+
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  padding: 6px 12px;
+  background: rgba(0, 20, 30, 0.95);
+  border: 1px solid #00ffff40;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 10;
+  color: #00ffff;
+  letter-spacing: 1px;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip.top::after {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip.bottom::after {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip.left::after {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tooltip.right::after {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #00ffff40;
+  background: rgba(0, 255, 255, 0.05);
+  color: #00ffff80;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  cursor: help;
+  transition: all 0.3s;
+}
+
+.trigger:hover {
+  border-color: #00ffff80;
+  color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+}

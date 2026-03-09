@@ -23,3 +23,12 @@ This document outlines the architectural and coding standards that must be follo
 - Keep functions and components small and focused.
 - Use meaningful and descriptive names.
 - Add type definitions for all data structures.
+
+## Documentation
+
+- **CV Sync**: Whenever the portfolio is updated, also update the CV files located in the `docs/` folder (e.g., `cv.md`, `cv.es.md`, `cv.en.md`). Ensure consistency between the portfolio content and the CV documents.
+
+## UI/UX Guidelines
+
+- **Responsive Design**: Every new interface or page must be designed with responsive layouts. Consider all screen sizes (mobile, tablet, desktop) from the initial design phase.
+- **Component-First Development**: When creating a new interface that requires new components, prioritize building those components first. Design them to be highly reusable and scalable before implementing the interface that consumes them.

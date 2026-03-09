@@ -1,29 +1,48 @@
 # Professional Portfolio
 
-This repository contains the source code for my personal portfolio. It is designed to showcase my technical skills, professional experience, and software development projects.
-
-The primary objective of this project is to demonstrate my proficiency in building modern, scalable, and maintainable web applications.
+## Overview
+Personal portfolio website built with FUI HUD sci-fi theme. Showcases technical skills, professional experience, and software development projects using a futuristic terminal-inspired design.
 
 ## Tech Stack
+- React 19 - UI library
+- TypeScript - Static typing
+- Vite - Build tool
+- React Router - Navigation
 
-- **React** - User interface library
-- **TypeScript** - Static typing for JavaScript
-- **Vite** - Build tool and development server
+## Folder Structure
+
+### [src/](src/README.md)
+Main application source code. Contains components, pages, layouts, and styles.
+
+### [src/components/](src/components/README.md)
+Reusable FUI HUD UI components. Contains 17 components including inputs, buttons, cards, badges, tables, tooltips, tickers, and decorative elements.
+
+### [src/pages/](src/pages/README.md)
+Application pages. Home, Experience, Contact, and Components showcase pages.
+
+### [src/layouts/](src/layouts/README.md)
+Layout components. Main layout with navigation.
+
+### [src/styles/](src/styles/README.md)
+Global styles and CSS variables for the FUI HUD design system.
+
+### [DOCS/](DOCS/README.md)
+Documentation files including CV and component references.
 
 ## Local Development
 
-To run this project locally, execute the following commands in your terminal:
-
 ```bash
-# Clone the repository
-git clone <repository-url>
-
-# Navigate into the directory
-cd <repository-directory>
-
 # Install dependencies
 npm install
 
-# Start the development server
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
+
+## Design System
+- Primary color: #00ffff (cyan)
+- Fonts: Rajdhani (display), Share Tech Mono (monospace)
+- Theme: Sci-fi HUD / Terminal aesthetic

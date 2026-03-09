@@ -1,24 +1,3 @@
-:root {
-  --fui-primary: #00ffff;
-  --fui-primary-dim: #00ffff40;
-  --fui-primary-light: #00ffff20;
-  --fui-secondary: #00ffff20;
-  --fui-warning: #ff6600;
-  --fui-danger: #ff0040;
-  --fui-success: #00ff00;
-  --fui-bg-dark: #030508;
-  --fui-bg-card: rgba(0, 20, 30, 0.4);
-  
-  --fui-font-display: 'Rajdhani', sans-serif;
-  --fui-font-mono: 'Share Tech Mono', monospace;
-  
-  --fui-border: #00ffff20;
-  --fui-border-light: #00ffff15;
-  --fui-border-hover: #00ffff60;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
-
 .fuiInput {
   width: 100%;
   padding: 12px 15px;
@@ -50,10 +29,12 @@
 
 .wrapper {
   position: relative;
+  width: 100%;
 }
 
 .wrapper .fuiInput {
   margin-bottom: 0;
+  width: 100%;
 }
 
 .underline {
@@ -83,4 +64,5 @@
 
 .group {
   margin-bottom: 15px;
+  width: 100%;
 }
