@@ -1,0 +1,21 @@
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ffff30;
+}
+
+.dotActive {
+  background: #00ff00;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.dotWarning {
+  background: #ff6600;
+  box-shadow: 0 0 5px #ff6600;
+}
+
+.dotDanger {
+  background: #ff0040;
+  box-shadow: 0 0 5px #ff0040;
+}

@@ -1,0 +1,86 @@
+:root {
+  --fui-primary: #00ffff;
+  --fui-primary-dim: #00ffff40;
+  --fui-primary-light: #00ffff20;
+  --fui-secondary: #00ffff20;
+  --fui-warning: #ff6600;
+  --fui-danger: #ff0040;
+  --fui-success: #00ff00;
+  --fui-bg-dark: #030508;
+  --fui-bg-card: rgba(0, 20, 30, 0.4);
+  
+  --fui-font-display: 'Rajdhani', sans-serif;
+  --fui-font-mono: 'Share Tech Mono', monospace;
+  
+  --fui-border: #00ffff20;
+  --fui-border-light: #00ffff15;
+  --fui-border-hover: #00ffff60;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+.fuiInput {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(0, 255, 255, 0.03);
+  border: 1px solid var(--fui-border);
+  color: var(--fui-primary);
+  font-family: var(--fui-font-display);
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: none;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.fuiInput:focus {
+  border-color: var(--fui-border-hover);
+  background: rgba(0, 255, 255, 0.08);
+  box-shadow: inset 0 0 20px #00ffff10, 0 0 10px #00ffff20;
+}
+
+.fuiInput::placeholder {
+  color: #00ffff30;
+}
+
+.fuiInput:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .fuiInput {
+  margin-bottom: 0;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--fui-primary);
+  transition: width 0.5s ease;
+  box-shadow: 0 0 8px var(--fui-primary);
+}
+
+.wrapper:focus-within .underline {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-family: var(--fui-font-mono);
+  font-size: 9px;
+  color: #00ffff60;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.group {
+  margin-bottom: 15px;
+}

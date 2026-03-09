@@ -1,0 +1,117 @@
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-family: var(--fui-font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  border: 1px solid;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.info {
+  border-color: #00ffff40;
+  color: var(--fui-primary);
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.success {
+  border-color: #00ff0040;
+  color: var(--fui-success);
+  background: rgba(0, 255, 0, 0.1);
+}
+
+.warning {
+  border-color: #ff660040;
+  color: var(--fui-warning);
+  background: rgba(255, 102, 0, 0.1);
+}
+
+.danger {
+  border-color: #ff004040;
+  color: var(--fui-danger);
+  background: rgba(255, 0, 64, 0.1);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid #00ffff20;
+  font-family: var(--fui-font-mono);
+  font-size: 9px;
+  color: #00ffff80;
+}
+
+.chipIcon {
+  font-size: 10px;
+}
+
+.dataPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid #00ffff20;
+  font-family: var(--fui-font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #00ffff80;
+}
+
+.dataPill::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--fui-primary);
+  box-shadow: 0 0 5px var(--fui-primary);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid;
+  font-family: var(--fui-font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.online {
+  border-color: #00ff0040;
+  color: var(--fui-success);
+}
+
+.offline {
+  border-color: #ff004040;
+  color: var(--fui-danger);
+}
+
+.statusWarning {
+  border-color: #ff660040;
+  color: var(--fui-warning);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 8px 2px currentColor;
+  }
+}
