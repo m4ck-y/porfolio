@@ -1,0 +1,46 @@
+.decoratedCard {
+  background: rgba(0, 255, 255, 0.03);
+  border: 1px solid #00ffff20;
+  padding: 20px;
+  position: relative;
+}
+
+.decoratedCard::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00ffff, #00ffff40);
+}
+
+.decoratedCard::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00ffff20);
+}
+
+.elevated {
+  border-color: #00ffff30;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.decoratedTitle {
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #00ffff20;
+  color: #00ffff;
+}
+
+.decoratedContent {
+  font-size: 12px;
+  color: #00ffff80;
+  line-height: 1.6;
+}

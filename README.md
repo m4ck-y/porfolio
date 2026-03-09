@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# Professional Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Personal portfolio website built with FUI HUD sci-fi theme. Showcases technical skills, professional experience, and software development projects using a futuristic terminal-inspired design.
 
-Currently, two official plugins are available:
+## Tech Stack
+- React 19 - UI library
+- TypeScript - Static typing
+- Vite - Build tool
+- React Router - Navigation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Folder Structure
 
-## React Compiler
+### [src/](src/README.md)
+Main application source code. Contains components, pages, layouts, and styles.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### [src/components/](src/components/README.md)
+Reusable FUI HUD UI components. Contains 17 components including inputs, buttons, cards, badges, tables, tooltips, tickers, and decorative elements.
 
-## Expanding the ESLint configuration
+### [src/pages/](src/pages/README.md)
+Application pages. Home, Experience, Contact, and Components showcase pages.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### [src/layouts/](src/layouts/README.md)
+Layout components. Main layout with navigation.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### [src/styles/](src/styles/README.md)
+Global styles and CSS variables for the FUI HUD design system.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### [DOCS/](DOCS/README.md)
+Documentation files including CV and component references.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Design System
+- Primary color: #00ffff (cyan)
+- Fonts: Rajdhani (display), Share Tech Mono (monospace)
+- Theme: Sci-fi HUD / Terminal aesthetic

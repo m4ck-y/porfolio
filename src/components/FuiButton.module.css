@@ -1,0 +1,127 @@
+.button {
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #00ffff10, #00ffff15, #00ffff10);
+  border: 1px solid #00ffff40;
+  color: var(--fui-primary);
+  font-family: var(--fui-font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #00ffff20, #00ffff30, #00ffff20);
+  box-shadow: 0 0 20px #00ffff30;
+  border-color: #00ffff80;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary {
+  border-color: #00ffff20;
+  color: #00ffff80;
+}
+
+.danger {
+  border-color: #ff660040;
+  color: var(--fui-warning);
+}
+
+.danger:hover {
+  border-color: var(--fui-warning);
+  box-shadow: 0 0 20px #ff660030;
+  background: linear-gradient(90deg, #ff660010, #ff660020, #ff660010);
+}
+
+.success {
+  border-color: #00ff0040;
+  color: var(--fui-success);
+}
+
+.success:hover {
+  border-color: var(--fui-success);
+  box-shadow: 0 0 20px #00ff0030;
+}
+
+.initiate {
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #00ffff05, #00ffff15, #00ffff05);
+  border: 1px solid #00ffff40;
+  color: var(--fui-primary);
+  font-family: var(--fui-font-mono);
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.initiate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.initiate::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 4px;
+  background: linear-gradient(45deg, #00ffff, #0066ff, #00ffff);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.4;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from { left: -100%; }
+  to { left: 100%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+.initiate:hover {
+  background: linear-gradient(90deg, #00ffff15, #00ffff30, #00ffff15);
+  border-color: #00ffff80;
+  box-shadow: 0 0 30px #00ffff40, inset 0 0 20px #00ffff10;
+  letter-spacing: 6px;
+}
+
+.initiate:active {
+  transform: scale(0.98);
+}
+
+.fullWidth {
+  width: 100%;
+}

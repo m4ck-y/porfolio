@@ -1,0 +1,68 @@
+.fuiInput {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(0, 255, 255, 0.03);
+  border: 1px solid var(--fui-border);
+  color: var(--fui-primary);
+  font-family: var(--fui-font-display);
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: none;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.fuiInput:focus {
+  border-color: var(--fui-border-hover);
+  background: rgba(0, 255, 255, 0.08);
+  box-shadow: inset 0 0 20px #00ffff10, 0 0 10px #00ffff20;
+}
+
+.fuiInput::placeholder {
+  color: #00ffff30;
+}
+
+.fuiInput:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.wrapper .fuiInput {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--fui-primary);
+  transition: width 0.5s ease;
+  box-shadow: 0 0 8px var(--fui-primary);
+}
+
+.wrapper:focus-within .underline {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-family: var(--fui-font-mono);
+  font-size: 9px;
+  color: #00ffff60;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.group {
+  margin-bottom: 15px;
+  width: 100%;
+}

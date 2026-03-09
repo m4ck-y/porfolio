@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --fui-primary: #00ffff;
+  --fui-primary-dim: #00ffff40;
+  --fui-primary-light: #00ffff20;
+  --fui-secondary: #00ffff20;
+  --fui-warning: #ff6600;
+  --fui-danger: #ff0040;
+  --fui-success: #00ff00;
+  --fui-bg-dark: #030508;
+  --fui-bg-card: rgba(0, 20, 30, 0.4);
+  
+  --fui-font-display: 'Rajdhani', sans-serif;
+  --fui-font-mono: 'Share Tech Mono', monospace;
+  
+  --fui-border: #00ffff20;
+  --fui-border-light: #00ffff15;
+  --fui-border-hover: #00ffff60;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  min-height: 100vh;
+  background: #030508;
+  background-image:
+    radial-gradient(ellipse at 50% 30%, #00ffff08 0%, transparent 50%),
+    linear-gradient(0deg, #00ffff03 1px, transparent 1px),
+    linear-gradient(90deg, #00ffff03 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  overflow-x: hidden;
+  font-family: var(--fui-font-display);
+  color: #00ffff;
+}
+
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.01) 2px,
+    rgba(0, 255, 255, 0.01) 4px);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.gridBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, transparent 49.5%, #00ffff03 49.5%, #00ffff03 50.5%, transparent 50.5%),
+    linear-gradient(0deg, transparent 49.5%, #00ffff03 49.5%, #00ffff03 50.5%, transparent 50.5%);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+}

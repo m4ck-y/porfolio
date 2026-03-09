@@ -1,0 +1,54 @@
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0, 255, 255, 0.02);
+  border: 1px solid #00ffff15;
+  padding: 8px 0;
+}
+
+.tickerInner {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+  white-space: nowrap;
+}
+
+.fast {
+  animation-duration: 10s;
+}
+
+.slow {
+  animation-duration: 20s;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.inLabel {
+  color: #00ffff80;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.outLabel {
+  color: #00ff0080;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  margin-left: 20px;
+}
+
+.ip {
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+}
+
+.speed {
+  color: #00ff0080;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  margin-left: 10px;
+}

@@ -1,0 +1,58 @@
+.tickerContainer {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0, 255, 255, 0.02);
+  border: 1px solid #00ffff15;
+  padding: 12px 0;
+}
+
+.tickerInner {
+  display: flex;
+  gap: 30px;
+  animation: scroll 20s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tickerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 15px;
+  border-right: 1px solid #00ffff10;
+}
+
+.tickerItem:last-child {
+  border-right: none;
+}
+
+.symbol {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #00ffff;
+  letter-spacing: 1px;
+}
+
+.price {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #00ffff80;
+}
+
+.change {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.up {
+  color: #00ff00;
+}
+
+.down {
+  color: #ff0040;
+}
