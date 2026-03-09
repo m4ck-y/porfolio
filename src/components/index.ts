@@ -15,3 +15,6 @@ export { FuiNetworkTraffic } from './FuiNetworkTraffic';
 export { FuiTypography } from './FuiTypography';
 export { FuiCryptoTicker } from './FuiCryptoTicker';
 export { FuiInitiateButton } from './FuiInitiateButton';
+export { FuiParticles } from './FuiParticles';
+export { FuiGlitch } from './FuiGlitch';
+export { FuiTypewriter } from './FuiTypewriter';

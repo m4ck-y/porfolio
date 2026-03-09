@@ -1,0 +1,35 @@
+.typewriter {
+    font-family: var(--fui-font-mono);
+    font-size: 14px;
+    color: #00ffff60;
+    letter-spacing: 4px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.prefix {
+    color: #00ffff40;
+}
+
+.text {
+    color: #00ffff80;
+}
+
+.cursor {
+    color: var(--fui-primary);
+    animation: blink 0.8s step-end infinite;
+    margin-left: 2px;
+    font-weight: 300;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

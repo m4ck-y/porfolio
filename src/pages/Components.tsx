@@ -24,6 +24,9 @@ import {
   FuiNetworkTraffic,
   FuiCryptoTicker,
   FuiInitiateButton,
+  FuiGlitch,
+  FuiTypewriter,
+  FuiParticles,
 } from '@/components';
 import styles from './Components.module.css';
 
@@ -63,7 +66,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiInput label="Disabled" disabled value="System disabled" />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiInput } from './components';
+              {`import { FuiInput } from './components';
 
 <FuiInput label="Username" placeholder="Enter..." />
 <FuiInput type="email" placeholder="user@domain.com" />
@@ -85,7 +88,7 @@ export const ComponentsPage: React.FC = () => {
               />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiSelect } from './components';
+              {`import { FuiSelect } from './components';
 
 <FuiSelect
   label="Select Option"
@@ -103,7 +106,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiFileUpload label="Upload File" />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiFileUpload } from './components';
+              {`import { FuiFileUpload } from './components';
 
 <FuiFileUpload 
   label="Upload File"
@@ -127,7 +130,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiButton disabled>Disabled</FuiButton>
             </div>
             <div className={styles.codeBlock}>
-{`<FuiButton>Primary</FuiButton>
+              {`<FuiButton>Primary</FuiButton>
 <FuiButton variant="secondary">Secondary</FuiButton>
 <FuiButton variant="success">Success</FuiButton>
 <FuiButton variant="danger">Danger</FuiButton>
@@ -141,7 +144,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiButton initiate>INITIATE</FuiButton>
             </div>
             <div className={styles.codeBlock}>
-{`<FuiButton initiate>INITIATE</FuiButton>`}
+              {`<FuiButton initiate>INITIATE</FuiButton>`}
             </div>
           </div>
         </div>
@@ -165,7 +168,7 @@ export const ComponentsPage: React.FC = () => {
               />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiCheckbox } from './components';
+              {`import { FuiCheckbox } from './components';
 
 <FuiCheckbox 
   label="Option A" 
@@ -190,7 +193,7 @@ export const ComponentsPage: React.FC = () => {
               />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiRadioGroup } from './components';
+              {`import { FuiRadioGroup } from './components';
 
 <FuiRadioGroup
   name="demo"
@@ -219,7 +222,7 @@ export const ComponentsPage: React.FC = () => {
               />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiToggle } from './components';
+              {`import { FuiToggle } from './components';
 
 <FuiToggle 
   label="Enable Feature"
@@ -239,7 +242,7 @@ export const ComponentsPage: React.FC = () => {
               />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiSlider } from './components';
+              {`import { FuiSlider } from './components';
 
 <FuiSlider
   label="Volume"
@@ -263,7 +266,7 @@ export const ComponentsPage: React.FC = () => {
               </div>
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiProgressBar } from './components';
+              {`import { FuiProgressBar } from './components';
 
 <FuiProgressBar value={45} label="System" />
 <FuiProgressBar value={78} variant="warning" />
@@ -285,7 +288,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiBadge variant="danger">DANGER</FuiBadge>
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiBadge } from './components';
+              {`import { FuiBadge } from './components';
 
 <FuiBadge variant="info">INFO</FuiBadge>
 <FuiBadge variant="success">SUCCESS</FuiBadge>
@@ -302,7 +305,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiStatusIndicator status="offline">OFFLINE</FuiStatusIndicator>
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiStatusIndicator } from './components';
+              {`import { FuiStatusIndicator } from './components';
 
 <FuiStatusIndicator status="online">ONLINE</FuiStatusIndicator>
 <FuiStatusIndicator status="warning">WARNING</FuiStatusIndicator>
@@ -318,10 +321,31 @@ export const ComponentsPage: React.FC = () => {
               <FuiChip icon="-">GAMMA</FuiChip>
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiChip } from './components';
+              {`import { FuiChip } from './components';
 
 <FuiChip icon="*">ALPHA</FuiChip>
 <FuiChip icon="o">BETA</FuiChip>`}
+            </div>
+          </div>
+
+          <div className={styles.componentItem} style={{ marginTop: 20 }}>
+            <div className={styles.componentName}>Alert Banners</div>
+            <div className={styles.alertBanners}>
+              <div className={`${styles.alertBanner} ${styles.alertSuccess}`}>
+                <span>+</span>
+                <span className={styles.alertText}>SYSTEM STATUS: OPTIMAL</span>
+                <span className={styles.alertTime}>2 min ago</span>
+              </div>
+              <div className={`${styles.alertBanner} ${styles.alertWarning}`}>
+                <span>!</span>
+                <span className={styles.alertText}>HIGH CPU LOAD: 89%</span>
+                <span className={styles.alertTime}>5 min ago</span>
+              </div>
+              <div className={`${styles.alertBanner} ${styles.alertDanger}`}>
+                <span>-</span>
+                <span className={styles.alertText}>CONNECTION LOST: NODE-07</span>
+                <span className={styles.alertTime}>12 sec ago</span>
+              </div>
             </div>
           </div>
         </div>
@@ -336,7 +360,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiCard title="CPU" value="23%" sub="IDLE" />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiCard } from './components';
+              {`import { FuiCard } from './components';
 
 <FuiCard title="CPU" value="23%" sub="IDLE" />`}
             </div>
@@ -352,7 +376,7 @@ export const ComponentsPage: React.FC = () => {
               </FuiCard>
             </div>
             <div className={styles.codeBlock}>
-{`<FuiCard decorated title="UNIT STATUS">
+              {`<FuiCard decorated title="UNIT STATUS">
   <p>Content here</p>
 </FuiCard>`}
             </div>
@@ -364,7 +388,7 @@ export const ComponentsPage: React.FC = () => {
               <FuiHeaderBar title="SYSTEM MONITOR" dots={['active', 'warning', 'inactive']} />
             </div>
             <div className={styles.codeBlock}>
-{`import { FuiHeaderBar } from './components';
+              {`import { FuiHeaderBar } from './components';
 
 <FuiHeaderBar 
   title="SYSTEM MONITOR" 
@@ -381,7 +405,7 @@ export const ComponentsPage: React.FC = () => {
           <FuiTable columns={tableColumns} data={tableData} />
         </div>
         <div className={styles.codeBlock}>
-{`import { FuiTable, FuiBadge } from './components';
+          {`import { FuiTable, FuiBadge } from './components';
 
 const columns = [
   { key: 'name', header: 'NAME' },
@@ -405,7 +429,7 @@ const columns = [
           <FuiInfoRow label="STORAGE" value="2TB NVMe" />
         </div>
         <div className={styles.codeBlock}>
-{`import { FuiInfoRow } from './components';
+          {`import { FuiInfoRow } from './components';
 
 <FuiInfoRow label="PROCESSOR" value="INTEL i7" />
 <FuiInfoRow label="MEMORY" value="32GB DDR5" />
@@ -415,7 +439,7 @@ const columns = [
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>{'::'} ANIMATIONS</h2>
-        
+
         <div className={styles.componentItem} style={{ marginBottom: 20 }}>
           <div className={styles.componentName}>Pulsing Dots</div>
           <div className={styles.pulsingDots}>
@@ -475,6 +499,36 @@ const columns = [
           </div>
         </div>
 
+        <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+          <div className={styles.componentName}>FuiGlitch</div>
+          <div style={{ padding: '20px', background: 'rgba(0,0,0,0.5)', textAlign: 'center' }}>
+            <FuiGlitch text="SYSTEM FAILURE" tag="h2" />
+          </div>
+          <div className={styles.codeBlock}>
+            {`import { FuiGlitch } from './components';
+
+<FuiGlitch text="SYSTEM FAILURE" />`}
+          </div>
+        </div>
+
+        <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+          <div className={styles.componentName}>FuiTypewriter</div>
+          <div style={{ padding: '20px', background: 'rgba(0,0,0,0.5)', textAlign: 'center' }}>
+            <FuiTypewriter
+              phrases={['INITIALIZING NEURAL NET', 'CALIBRATING SENSORS', 'SYSTEM READY']}
+              typingSpeed={50}
+            />
+          </div>
+          <div className={styles.codeBlock}>
+            {`import { FuiTypewriter } from './components';
+
+<FuiTypewriter 
+  phrases={['PHRASE 1', 'PHRASE 2']} 
+  typingSpeed={50} 
+/>`}
+          </div>
+        </div>
+
         <div className={styles.componentItem}>
           <div className={styles.componentName}>Breathing Scale</div>
           <div className={styles.breathing}>
@@ -486,97 +540,8 @@ const columns = [
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>{'::'} TICKERS</h2>
-        
-        <div className={styles.componentItem} style={{ marginBottom: 20 }}>
-          <div className={styles.componentName}>Crypto Ticker</div>
-          <div className={styles.ticker}>
-            <div className={styles.tickerInner}>
-              <span className={styles.tickerLabel}>BTC</span>
-              <span className={styles.tickerUp}> 67,234.56 (+2.34%)</span>
-              <span style={{ marginLeft: 15 }}>ETH</span>
-              <span className={styles.tickerUp}> 3,456.78 (+1.89%)</span>
-              <span style={{ marginLeft: 15 }}>SOL</span>
-              <span className={styles.tickerDown}> 142.23 (-3.21%)</span>
-              <span style={{ marginLeft: 15 }}>AVAX</span>
-              <span className={styles.tickerUp}> 45.67 (+0.98%)</span>
-              <span style={{ marginLeft: 15 }}>BTC</span>
-              <span className={styles.tickerUp}> 67,234.56 (+2.34%)</span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.componentItem} style={{ marginBottom: 20 }}>
-          <div className={styles.componentName}>Stock Ticker</div>
-          <div className={styles.ticker}>
-            <div className={`${styles.tickerInner} ${styles.tickerSlow}`}>
-              <span style={{ color: '#00ffff' }}>AAPL</span>
-              <span className={styles.tickerUp}> 178.45 (+1.2%)</span>
-              <span style={{ marginLeft: 15, color: '#00ffff' }}>GOOGL</span>
-              <span className={styles.tickerDown}> 142.30 (-0.8%)</span>
-              <span style={{ marginLeft: 15, color: '#00ffff' }}>MSFT</span>
-              <span className={styles.tickerUp}> 412.67 (+0.5%)</span>
-              <span style={{ marginLeft: 15, color: '#00ffff' }}>TSLA</span>
-              <span className={styles.tickerDown}> 167.23 (-2.1%)</span>
-              <span style={{ marginLeft: 15, color: '#00ffff' }}>NVDA</span>
-              <span className={styles.tickerUp}> 892.45 (+3.4%)</span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.componentItem}>
-          <div className={styles.componentName}>Network Traffic</div>
-          <div className={styles.ticker}>
-            <div className={`${styles.tickerInner} ${styles.tickerFast}`}>
-              <span style={{ color: '#00ffff80' }}>[IN] 192.168.1.105</span>
-              <span style={{ color: '#00ff0080', marginLeft: 10 }}>12.4 KB/s</span>
-              <span style={{ color: '#00ffff80', marginLeft: 20 }}>[OUT] 192.168.1.105</span>
-              <span style={{ color: '#00ff0080', marginLeft: 10 }}>8.2 KB/s</span>
-              <span style={{ color: '#00ffff80', marginLeft: 20 }}>[IN] 192.168.1.142</span>
-              <span style={{ color: '#00ff0080', marginLeft: 10 }}>45.6 KB/s</span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.componentItem} style={{ marginBottom: 20 }}>
-          <div className={styles.componentName}>Alert Banners</div>
-          <div className={styles.alertBanners}>
-            <div className={`${styles.alertBanner} ${styles.alertSuccess}`}>
-              <span>+</span>
-              <span className={styles.alertText}>SYSTEM STATUS: OPTIMAL</span>
-              <span className={styles.alertTime}>2 min ago</span>
-            </div>
-            <div className={`${styles.alertBanner} ${styles.alertWarning}`}>
-              <span>!</span>
-              <span className={styles.alertText}>HIGH CPU LOAD: 89%</span>
-              <span className={styles.alertTime}>5 min ago</span>
-            </div>
-            <div className={`${styles.alertBanner} ${styles.alertDanger}`}>
-              <span>-</span>
-              <span className={styles.alertText}>CONNECTION LOST: NODE-07</span>
-              <span className={styles.alertTime}>12 sec ago</span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.componentItem}>
-          <div className={styles.componentName}>Network Traffic</div>
-          <div className={styles.ticker}>
-            <div className={`${styles.tickerInner} ${styles.tickerFast}`}>
-              <span style={{ color: '#00ffff80' }}>[IN] 192.168.1.105</span>
-              <span style={{ color: '#00ff0080', marginLeft: 10 }}>12.4 KB/s</span>
-              <span style={{ color: '#00ffff80', marginLeft: 20 }}>[OUT] 192.168.1.105</span>
-              <span style={{ color: '#00ff0080', marginLeft: 10 }}>8.2 KB/s</span>
-              <span style={{ color: '#00ffff80', marginLeft: 20 }}>[IN] 192.168.1.142</span>
-              <span style={{ color: '#00ff0080', marginLeft: 10 }}>45.6 KB/s</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
         <h2 className={styles.sectionTitle}>{'::'} TYPOGRAPHY</h2>
-        
+
         <div className={styles.componentItem} style={{ marginBottom: 20 }}>
           <div className={styles.componentName}>Title Styles</div>
           <div className={styles.typographySection}>
@@ -605,6 +570,7 @@ const columns = [
             <span>{'>'} {'>'} {'>'} {'>'}</span>
             <span>{'[ ]'}</span>
             <span>{'# @ $ %'}</span>
+            <span>▲ ▼ ▶ ◀</span>
           </div>
         </div>
 
@@ -669,6 +635,12 @@ const columns = [
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>{'::'} TEXTURES</h2>
+        <div className={styles.componentItem} style={{ marginBottom: 20 }}>
+          <div className={styles.componentName}>Floating Particles</div>
+          <div style={{ position: 'relative', height: '200px', border: '1px solid #00ffff40', overflow: 'hidden' }}>
+            <FuiParticles />
+          </div>
+        </div>
         <div className={styles.componentItem} style={{ marginBottom: 20 }}>
           <div className={styles.componentName}>Background Textures</div>
           <FuiBackgrounds />

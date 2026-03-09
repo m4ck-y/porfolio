@@ -1,0 +1,129 @@
+.glitch {
+    position: relative;
+    display: inline-block;
+    animation: glitchTrigger 6s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.glitch::before {
+    color: #ff00ff;
+    animation: glitchBefore 6s infinite;
+    clip-path: inset(0 0 0 0);
+}
+
+.glitch::after {
+    color: #00ff00;
+    animation: glitchAfter 6s infinite;
+    clip-path: inset(0 0 0 0);
+}
+
+@keyframes glitchTrigger {
+
+    0%,
+    89%,
+    100% {
+        text-shadow: none;
+    }
+
+    90% {
+        text-shadow: 2px 0 #ff00ff, -2px 0 #00ff00;
+    }
+
+    91% {
+        text-shadow: -2px 0 #ff00ff, 2px 0 #00ff00;
+    }
+
+    92% {
+        text-shadow: 0 0 none;
+    }
+
+    93% {
+        text-shadow: 3px 0 #ff00ff, -3px 0 #00ff00;
+    }
+
+    94%,
+    100% {
+        text-shadow: none;
+    }
+}
+
+@keyframes glitchBefore {
+
+    0%,
+    89%,
+    94%,
+    100% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+
+    90% {
+        opacity: 0.8;
+        clip-path: inset(20% 0 40% 0);
+        transform: translateX(-4px);
+    }
+
+    91% {
+        opacity: 0.8;
+        clip-path: inset(60% 0 10% 0);
+        transform: translateX(3px);
+    }
+
+    92% {
+        opacity: 0.8;
+        clip-path: inset(10% 0 70% 0);
+        transform: translateX(-2px);
+    }
+
+    93% {
+        opacity: 0.8;
+        clip-path: inset(40% 0 30% 0);
+        transform: translateX(4px);
+    }
+}
+
+@keyframes glitchAfter {
+
+    0%,
+    89%,
+    94%,
+    100% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+
+    90% {
+        opacity: 0.8;
+        clip-path: inset(50% 0 20% 0);
+        transform: translateX(3px);
+    }
+
+    91% {
+        opacity: 0.8;
+        clip-path: inset(10% 0 60% 0);
+        transform: translateX(-4px);
+    }
+
+    92% {
+        opacity: 0.8;
+        clip-path: inset(70% 0 5% 0);
+        transform: translateX(2px);
+    }
+
+    93% {
+        opacity: 0.8;
+        clip-path: inset(30% 0 40% 0);
+        transform: translateX(-3px);
+    }
+}

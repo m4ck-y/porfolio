@@ -24,6 +24,7 @@
   letter-spacing: 4px;
   margin-bottom: 40px;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+  min-height: 24px;
 }
 
 @keyframes fadeInUp {
@@ -31,6 +32,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -72,12 +74,30 @@
   color: var(--fui-primary);
   min-width: 0;
   animation: fadeInUp 0.8s ease-out calc(0.6s + var(--delay, 0s)) both;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+  transition: left 0.5s;
+}
+
+.contactCard:hover::before {
+  left: 100%;
 }
 
 .contactCard:hover {
   border-color: var(--fui-primary);
   background: rgba(0, 255, 255, 0.08);
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.1);
 }
 
 .contactIcon {
@@ -89,6 +109,12 @@
   justify-content: center;
   font-size: 14px;
   flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.contactCard:hover .contactIcon {
+  border-color: var(--fui-primary);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
 
 .contactInfo {
@@ -125,7 +151,18 @@
   margin-bottom: 30px;
   padding-bottom: 15px;
   border-bottom: 1px solid var(--fui-border);
-  animation: slideIn 0.6s ease-out;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--fui-primary);
+  box-shadow: 0 0 10px var(--fui-primary);
 }
 
 @keyframes slideIn {
@@ -133,6 +170,7 @@
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -144,42 +182,203 @@
   line-height: 1.8;
   color: #00ffffcc;
   max-width: 800px;
-  animation: fadeIn 0.8s ease-out 0.3s both;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+/* ── Skill Bars ─────────────────────── */
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   margin-top: 20px;
 }
 
-.skillItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 15px;
-  background: var(--fui-primary-light);
-  border: 1px solid var(--fui-border);
-  font-size: 12px;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-  animation: fadeInUp 0.5s ease-out calc(0.1s * var(--index, 0)) both;
+.skillBar {
+  position: relative;
 }
 
-.skillItem:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: var(--fui-primary);
-  transform: translateX(5px);
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skillName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #00ffffcc;
 }
 
 .skillIcon {
   color: var(--fui-primary);
+}
+
+.skillPercent {
+  font-family: var(--fui-font-mono);
+  font-size: 11px;
+  color: var(--fui-primary);
+  letter-spacing: 1px;
+}
+
+.skillTrack {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00ffff40, var(--fui-primary));
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(0.1s * var(--index, 0));
+}
+
+.skillBar.revealed .skillFill {
+  width: var(--level);
+}
+
+.skillGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.6));
+  opacity: 0;
+  transition: opacity 0.5s;
+  transition-delay: calc(0.1s * var(--index, 0) + 1s);
+  filter: blur(2px);
+}
+
+.skillBar.revealed .skillGlow {
+  opacity: 1;
+  animation: skillGlowPulse 2s ease-in-out infinite;
+  animation-delay: calc(0.1s * var(--index, 0) + 1.2s);
+}
+
+@keyframes skillGlowPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ── Tech Stack ─────────────────────── */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.techCategory {
+  background: var(--fui-bg-card);
+  border: 1px solid var(--fui-border);
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.techCategory:hover {
+  border-color: #00ffff40;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+.techCategory::before,
+.techCategory::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #00ffff30;
+}
+
+.techCategory::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.techCategory::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.techCategoryHeader {
+  font-family: var(--fui-font-mono);
+  font-size: 10px;
+  color: #00ffff60;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--fui-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.techCategoryDot {
+  width: 4px;
+  height: 4px;
+  background: var(--fui-primary);
+  box-shadow: 0 0 6px var(--fui-primary);
+  border-radius: 50%;
+}
+
+.techItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(0, 255, 255, 0.04);
+  border: 1px solid #00ffff18;
+  font-family: var(--fui-font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #00ffffb0;
+  transition: all 0.3s;
+  cursor: default;
+  animation: badgeFadeIn 0.5s ease-out calc(0.08s * var(--bi, 0)) both;
+}
+
+.techBadge:hover {
+  background: rgba(0, 255, 255, 0.12);
+  border-color: var(--fui-primary);
+  color: var(--fui-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.15);
+}
+
+@keyframes badgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .statsGrid {
@@ -195,6 +394,29 @@
   border: 1px solid var(--fui-border);
   text-align: center;
   animation: pulse 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00ffff40, transparent);
+  animation: scanStat 4s linear infinite;
+}
+
+@keyframes scanStat {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 .statCard:nth-child(2) {
@@ -206,9 +428,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
   }
+
   50% {
     box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.1);
   }
@@ -227,12 +452,24 @@
   color: #00ffff60;
 }
 
+/* ── Corner Brackets ─────────────────────── */
 .cornerBracket {
   position: absolute;
   width: 60px;
   height: 60px;
   border: 1px solid #00ffff40;
   pointer-events: none;
+  animation: cornerFadeIn 1s ease-out both;
+}
+
+@keyframes cornerFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .cornerBracketTl {
@@ -240,6 +477,7 @@
   left: 20px;
   border-right: none;
   border-bottom: none;
+  animation-delay: 0.5s;
 }
 
 .cornerBracketTr {
@@ -247,6 +485,7 @@
   right: 20px;
   border-left: none;
   border-bottom: none;
+  animation-delay: 0.7s;
 }
 
 .cornerBracketBl {
@@ -254,6 +493,7 @@
   left: 20px;
   border-right: none;
   border-top: none;
+  animation-delay: 0.9s;
 }
 
 .cornerBracketBr {
@@ -261,6 +501,7 @@
   right: 20px;
   border-left: none;
   border-top: none;
+  animation-delay: 1.1s;
 }
 
 .cornerBracket::before,
@@ -275,21 +516,52 @@
   height: 1px;
 }
 
-.cornerBracketTl::before { top: 0; left: 0; }
-.cornerBracketTr::before { top: 0; right: 0; }
-.cornerBracketBl::before { bottom: 0; left: 0; }
-.cornerBracketBr::before { bottom: 0; right: 0; }
+.cornerBracketTl::before {
+  top: 0;
+  left: 0;
+}
+
+.cornerBracketTr::before {
+  top: 0;
+  right: 0;
+}
+
+.cornerBracketBl::before {
+  bottom: 0;
+  left: 0;
+}
+
+.cornerBracketBr::before {
+  bottom: 0;
+  right: 0;
+}
 
 .cornerBracket::after {
   width: 1px;
   height: 8px;
 }
 
-.cornerBracketTl::after { top: 0; left: 0; }
-.cornerBracketTr::after { top: 0; right: 0; }
-.cornerBracketBl::after { bottom: 0; left: 0; }
-.cornerBracketBr::after { bottom: 0; right: 0; }
+.cornerBracketTl::after {
+  top: 0;
+  left: 0;
+}
 
+.cornerBracketTr::after {
+  top: 0;
+  right: 0;
+}
+
+.cornerBracketBl::after {
+  bottom: 0;
+  left: 0;
+}
+
+.cornerBracketBr::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* ── Data Blocks ─────────────────────── */
 .dataBlock {
   position: absolute;
   font-family: var(--fui-font-mono);
@@ -329,6 +601,7 @@
   color: #00ffff30;
 }
 
+/* ── Crosshair ─────────────────────── */
 .crosshair {
   position: absolute;
   top: 50%;
@@ -405,10 +678,48 @@
 }
 
 @keyframes crosshairPulse {
-  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.5); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
 }
 
+/* ── Hex Ring ─────────────────────── */
+.hexRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: hexRotate 30s linear infinite;
+}
+
+.hexSvg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes hexRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ── Arc Container ─────────────────────── */
 .arcContainer {
   position: absolute;
   top: 50%;
@@ -431,20 +742,49 @@
   animation: rotateArc 4s linear infinite;
 }
 
-.arcBar:nth-child(1) { animation-delay: 0s; }
-.arcBar:nth-child(2) { animation-delay: 0.5s; }
-.arcBar:nth-child(3) { animation-delay: 1s; }
-.arcBar:nth-child(4) { animation-delay: 1.5s; }
-.arcBar:nth-child(5) { animation-delay: 2s; }
-.arcBar:nth-child(6) { animation-delay: 2.5s; }
-.arcBar:nth-child(7) { animation-delay: 3s; }
-.arcBar:nth-child(8) { animation-delay: 3.5s; }
-
-@keyframes rotateArc {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to { transform: translateX(-50%) rotate(360deg); }
+.arcBar:nth-child(1) {
+  animation-delay: 0s;
 }
 
+.arcBar:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.arcBar:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.arcBar:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.arcBar:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.arcBar:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.arcBar:nth-child(7) {
+  animation-delay: 3s;
+}
+
+.arcBar:nth-child(8) {
+  animation-delay: 3.5s;
+}
+
+@keyframes rotateArc {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/* ── Loading Bar ─────────────────────── */
 .loadingBar {
   position: absolute;
   bottom: 50px;
@@ -467,8 +807,13 @@
 }
 
 @keyframes loading {
-  0% { left: -50%; }
-  100% { left: 100%; }
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 .loadingText {
@@ -484,8 +829,15 @@
 }
 
 @keyframes loadText {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .timestamp {
@@ -494,4 +846,50 @@
   color: #00ffff40;
   letter-spacing: 2px;
   margin-top: 8px;
+}
+
+/* ── Responsive ─────────────────────── */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .statCard {
+    padding: 15px;
+  }
+
+  .statValue {
+    font-size: 24px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dataBlock {
+    display: none;
+  }
+
+  .hexRing {
+    width: 300px;
+    height: 300px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .techGrid {
+    grid-template-columns: 1fr;
+  }
 }

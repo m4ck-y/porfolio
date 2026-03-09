@@ -15,7 +15,7 @@ Personal portfolio website built with FUI HUD sci-fi theme. Showcases technical 
 Main application source code. Contains components, pages, layouts, and styles.
 
 ### [src/components/](src/components/README.md)
-Reusable FUI HUD UI components. Contains 17 components including inputs, buttons, cards, badges, tables, tooltips, tickers, and decorative elements.
+Reusable FUI HUD UI components. Contains 20+ components including inputs, buttons, cards, badges, tables, tooltips, tickers, and advanced decorative VFX elements (`FuiGlitch`, `FuiTypewriter`, `FuiParticles`, `AIModal` / Syngular IA bot).
 
 ### [src/pages/](src/pages/README.md)
 Application pages. Home, Experience, Contact, and Components showcase pages.
