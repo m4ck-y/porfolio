@@ -4,11 +4,28 @@
   padding: 40px;
 }
 
+.headerContainer {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .title {
   font-size: 24px;
   letter-spacing: 4px;
   margin-bottom: 10px;
-  text-align: center;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .subtitle {
@@ -16,14 +33,97 @@
   font-size: 11px;
   color: #00ffff60;
   letter-spacing: 2px;
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.6s ease-out 0.2s both;
+}
+
+.headerDecoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: fadeInDown 0.6s ease-out 0.4s both;
+}
+
+.decoLine {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00ffff40);
+}
+
+.decoLine:last-child {
+  background: linear-gradient(90deg, #00ffff40, transparent);
+}
+
+.decoDot {
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--fui-primary);
+  transform: rotate(45deg);
+  animation: decoRotate 4s linear infinite;
+}
+
+@keyframes decoRotate {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+/* ── Form Wrapper ─────────────────────── */
+.formWrapper {
+  position: relative;
+  padding: 4px;
+}
+
+.formCornerTl,
+.formCornerTr,
+.formCornerBl,
+.formCornerBr {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #00ffff25;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.formCornerTl {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.formCornerTr {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.formCornerBl {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.formCornerBr {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
 }
 
 .row {
@@ -56,13 +156,14 @@
 .textarea:focus {
   border-color: var(--fui-border-hover);
   background: rgba(0, 255, 255, 0.08);
-  box-shadow: inset 0 0 20px #00ffff10;
+  box-shadow: inset 0 0 20px #00ffff10, 0 0 15px rgba(0, 255, 255, 0.05);
 }
 
 .textarea::placeholder {
   color: #00ffff30;
 }
 
+/* ── Contact Info ─────────────────────── */
 .contactInfo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -77,11 +178,41 @@
   background: var(--fui-bg-card);
   border: 1px solid var(--fui-border);
   text-align: center;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.infoCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.06), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.infoCard:hover::before {
+  opacity: 1;
+}
+
+.infoCard:hover {
+  border-color: #00ffff40;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.08);
 }
 
 .infoIcon {
   font-size: 24px;
   margin-bottom: 10px;
+  transition: text-shadow 0.3s;
+}
+
+.infoCard:hover .infoIcon {
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 .infoLabel {
@@ -99,18 +230,67 @@
 .infoValue a {
   color: var(--fui-primary);
   text-decoration: none;
+  transition: all 0.3s;
 }
 
 .infoValue a:hover {
-  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
+/* ── Success Message ─────────────────────── */
 .successMessage {
-  padding: 20px;
-  background: rgba(0, 255, 0, 0.1);
-  border: 1px solid var(--fui-success);
+  padding: 40px 20px;
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid #00ff0040;
   text-align: center;
   font-family: var(--fui-font-mono);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--fui-success);
+  animation: successFlash 0.5s ease-out;
+}
+
+.successIcon {
+  font-size: 36px;
+  margin-bottom: 15px;
+  animation: successPop 0.5s ease-out 0.2s both;
+}
+
+@keyframes successPop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.successSub {
+  font-size: 10px;
+  color: #00ff0060;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+
+@keyframes successFlash {
+  0% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+  }
+
+  100% {
+    box-shadow: none;
+  }
+}
+
+/* ── Responsive ─────────────────────── */
+@media (max-width: 768px) {
+  .contact {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
 }

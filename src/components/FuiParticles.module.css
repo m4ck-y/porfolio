@@ -1,0 +1,75 @@
+.particleField {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    left: var(--x);
+    top: var(--y);
+    background: #00ffff;
+    border-radius: 50%;
+    opacity: var(--opacity);
+    box-shadow: 0 0 calc(var(--size) * 2) rgba(0, 255, 255, 0.4);
+    animation: floatParticle var(--duration) var(--delay) ease-in-out infinite;
+}
+
+@keyframes floatParticle {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        opacity: var(--opacity);
+    }
+
+    25% {
+        transform: translate(var(--drift), -30px);
+        opacity: calc(var(--opacity) * 1.5);
+    }
+
+    50% {
+        transform: translate(calc(var(--drift) * -0.5), -60px);
+        opacity: var(--opacity);
+    }
+
+    75% {
+        transform: translate(calc(var(--drift) * 0.7), -30px);
+        opacity: calc(var(--opacity) * 0.7);
+    }
+}
+
+.orb {
+    position: absolute;
+    left: var(--ox);
+    top: var(--oy);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.06) 0%, transparent 70%);
+    animation: floatOrb var(--od) ease-in-out infinite;
+    filter: blur(20px);
+}
+
+@keyframes floatOrb {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -40px) scale(1.2);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.8);
+    }
+}

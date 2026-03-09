@@ -1,27 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { AIModal } from '../components';
+import { FuiGlitch, FuiTypewriter } from '../components';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import styles from './Home.module.css';
 
 const skills = [
-  'Logical-mathematical reasoning',
-  'Abstraction capability',
-  'Teamwork',
-  'Creativity',
-  'Data structures',
-  'Algorithmic complexity',
-  'Clean code',
-  'SOLID principles',
+  { name: 'Python / FastAPI', level: 90 },
+  { name: 'TypeScript / React', level: 88 },
+  { name: 'System Architecture', level: 85 },
+  { name: 'SQL / PostgreSQL', level: 82 },
+  { name: 'Docker / DevOps', level: 78 },
+  { name: 'Go / Golang', level: 70 },
+  { name: 'Cloud (GCP / Azure)', level: 75 },
+  { name: 'Data Analysis', level: 72 },
+];
+
+const techStack = [
+  { category: 'LANGUAGES', items: ['Python', 'TypeScript', 'JavaScript', 'Go', 'C#'] },
+  { category: 'FRONTEND', items: ['React', 'TailwindCSS', 'NextUI', 'd3.js'] },
+  { category: 'BACKEND', items: ['FastAPI', 'SQLAlchemy', 'Node.js', 'Laravel'] },
+  { category: 'DEVOPS', items: ['Docker', 'Linux', 'Google Cloud', 'Azure'] },
+  { category: 'DATA', items: ['PostgreSQL', 'MongoDB', 'Pandas', 'Selenium'] },
 ];
 
 const contactItems = [
   { icon: '+', label: 'PHONE', value: '+52 7712397470', href: 'tel:+527712397470' },
   { icon: '@', label: 'EMAIL', value: 'macario.alvaradohdez@gmail.com', href: 'mailto:macario.alvaradohdez@gmail.com' },
   { icon: '</>', label: 'GITHUB', value: 'github.com/m4ck-y', href: 'https://github.com/m4ck-y' },
-  { icon: 'in', label: 'LINKEDIN', value: 'macario-alvarado-hernandez', href: 'https://linkedin.com/in/macario-alvarado-hernandez-125b4b269' },
+  { icon: 'in', label: 'LINKEDIN', value: 'macario-alvarado-hernández', href: 'https://linkedin.com/in/macario-alvarado-hernández-125b4b269' },
+];
+
+const roles = [
+  'SOFTWARE ENGINEER',
+  'BACKEND DEVELOPER',
+  'SYSTEM ARCHITECT',
+  'FULL STACK DEV',
 ];
 
 export const HomePage: React.FC = () => {
   const [time, setTime] = useState('');
+  const sectionsRef = useScrollReveal<HTMLDivElement>();
 
   useEffect(() => {
     const updateTime = () => {
@@ -34,9 +51,7 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <AIModal />
-      
+    <div ref={sectionsRef}>
       <div className={styles.hero}>
         <div className={`${styles.cornerBracket} ${styles.cornerBracketTl}`} />
         <div className={`${styles.cornerBracket} ${styles.cornerBracketTr}`} />
@@ -73,9 +88,19 @@ export const HomePage: React.FC = () => {
           <div className={styles.arcBar} />
         </div>
 
-        <h1 className={styles.heroTitle}>Macario Alvarado</h1>
-        <p className={styles.heroSubtitle}>// SOFTWARE ENGINEER</p>
-        
+        {/* Hex ring decoration */}
+        <div className={styles.hexRing}>
+          <svg viewBox="0 0 200 200" className={styles.hexSvg}>
+            <polygon points="100,10 180,55 180,145 100,190 20,145 20,55" fill="none" stroke="#00ffff12" strokeWidth="1" />
+            <polygon points="100,30 160,65 160,135 100,170 40,135 40,65" fill="none" stroke="#00ffff08" strokeWidth="1" />
+          </svg>
+        </div>
+
+        <FuiGlitch text="Macario Alvarado" className={styles.heroTitle} />
+        <div className={styles.heroSubtitle}>
+          <FuiTypewriter phrases={roles} typingSpeed={70} deletingSpeed={35} pauseTime={2500} />
+        </div>
+
         <div className={styles.heroLocation}>
           <span>{'>'}</span>
           <span>CDMX, MEXICO</span>
@@ -99,11 +124,11 @@ export const HomePage: React.FC = () => {
 
         <div className={styles.contactGrid}>
           {contactItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              key={index}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.contactCard}
               style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
             >
@@ -121,26 +146,60 @@ export const HomePage: React.FC = () => {
       </div>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>:: PROFESSIONAL PROFILE</h2>
-        <p className={styles.profileText}>
-          I consider myself a responsible, creative person with ease of adaptation and ability to work in a team, 
-          with initiative to solve problems. I would love to be part of a company where I can apply my knowledge 
-          and, at the same time, allow me to develop professionally. I like to try new technologies and push them 
+        <h2 className={`${styles.sectionTitle} reveal-left`}>:: PROFESSIONAL PROFILE</h2>
+        <p className={`${styles.profileText} reveal-up`}>
+          I consider myself a responsible, creative person with ease of adaptation and ability to work in a team,
+          with initiative to solve problems. I would love to be part of a company where I can apply my knowledge
+          and, at the same time, allow me to develop professionally. I like to try new technologies and push them
           to their limits.
         </p>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>:: SKILLS</h2>
-        <div className={styles.skillsGrid}>
+        <h2 className={`${styles.sectionTitle} reveal-left`}>:: SKILLS</h2>
+        <div className={styles.skillsContainer}>
           {skills.map((skill, index) => (
-            <div 
-              key={index} 
-              className={styles.skillItem}
-              style={{ '--index': index } as React.CSSProperties}
+            <div
+              key={index}
+              className={`${styles.skillBar} reveal-right`}
+              style={{ '--index': index, '--level': `${skill.level}%` } as React.CSSProperties}
             >
-              <span className={styles.skillIcon}>{'>'}</span>
-              <span>{skill}</span>
+              <div className={styles.skillHeader}>
+                <span className={styles.skillName}>
+                  <span className={styles.skillIcon}>{'>'}</span>
+                  {skill.name}
+                </span>
+                <span className={styles.skillPercent}>{skill.level}%</span>
+              </div>
+              <div className={styles.skillTrack}>
+                <div className={styles.skillFill} />
+                <div className={styles.skillGlow} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={`${styles.sectionTitle} reveal-left`}>:: TECH STACK</h2>
+        <div className={styles.techGrid}>
+          {techStack.map((group, gIndex) => (
+            <div key={gIndex} className={`${styles.techCategory} reveal-up`}>
+              <div className={styles.techCategoryHeader}>
+                <span className={styles.techCategoryDot} />
+                {group.category}
+              </div>
+              <div className={styles.techItems}>
+                {group.items.map((item, iIndex) => (
+                  <span
+                    key={iIndex}
+                    className={styles.techBadge}
+                    style={{ '--bi': iIndex } as React.CSSProperties}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>

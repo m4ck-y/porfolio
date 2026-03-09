@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { FuiParticles, AIModal } from '@/components';
 import styles from './MainLayout.module.css';
 import '../styles/global.css';
 
@@ -11,25 +12,40 @@ const navItems = [
 ];
 
 export const MainLayout: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className={styles.layout}>
       <div className="scanlines" />
       <div className="gridBg" />
-      
+      <FuiParticles />
+      <AIModal />
+
       <nav className={styles.nav}>
         <a href="/" className={styles.logo}>
           <span className={styles.logoIcon}>{'>'}</span>
           M4CK-Y
         </a>
-        
-        <div className={styles.navLinks}>
+
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <div className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ''}`}>
           {navItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
-              className={({ isActive }) => 
+              className={({ isActive }) =>
                 `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
               }
+              onClick={() => setMenuOpen(false)}
             >
               {item.label}
             </NavLink>
@@ -41,13 +57,21 @@ export const MainLayout: React.FC = () => {
         <Outlet />
       </main>
 
+      <div className="gradient-divider" />
+
       <footer className={styles.footer}>
-        <span>© 2025 MACARIO ALVARADO HERNANDEZ // SOFTWARE ENGINEER</span>
+        <div className={styles.footerLeft}>
+          <span className={styles.footerStatus}>
+            <span className={styles.statusDot} />
+            SYSTEM ACTIVE
+          </span>
+          <span>© {new Date().getFullYear()} MACARIO ALVARADO HERNANDEZ</span>
+        </div>
         <div className={styles.footerLinks}>
           <a href="https://github.com/m4ck-y" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
             GITHUB
           </a>
-          <a href="https://linkedin.com/in/macario-alvarado-hernandez-125b4b269" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+          <a href="https://linkedin.com/in/macario-alvarado-hernández-125b4b269" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
             LINKEDIN
           </a>
         </div>
